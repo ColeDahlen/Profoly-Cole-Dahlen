@@ -6,7 +6,7 @@ function* getOnePicture(action){
         console.log(action.payload)
         const response = yield axios({
             method: 'GET',
-            url: `/api/images/${action.payload}`
+            url: `/api/details/${action.payload}`
           })       
         yield put({
             type: 'SET_IMAGE_DETAIL',

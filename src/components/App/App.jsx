@@ -19,7 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import ImageDetails from '../GalleryPage/ImageDetails';
+import ImageDetails from '../ImageDetails/ImageDetails';
+import EditDetail from '../EditDetail/EditDetail'
 
 import './App.css';
 
@@ -68,14 +69,20 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+          
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
             exact
             path="/images_details/:id"
           >
             <ImageDetails />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact 
+            path="/edit_details/:id"
+          >
+            <EditDetail />
+          </ProtectedRoute>
           <Route
             exact
             path="/login"

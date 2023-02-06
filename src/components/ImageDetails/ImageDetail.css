@@ -1,0 +1,12 @@
+.details_picture{
+    max-width: 500px;
+    max-height: 600px;
+}
+.details_name{
+    font-style: oblique;
+    font-size:100px;
+}
+.details_description{
+    font-style:normal;
+    font-size: 50px;
+}

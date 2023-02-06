@@ -1,4 +1,4 @@
-import './Image.css';
+import './Image.css'
 import { useHistory } from 'react-router-dom';
 function ImageItems({image}){
     const history = useHistory()
@@ -9,7 +9,6 @@ function ImageItems({image}){
         <div onClick={handleDetails}>
             <img className='pictures' src={image.picture_url} alt={image.picture_name}/>
             <div>{image.picture_name}</div>
-            <div>{image.picture_description}</div>
         </div>
     )
 }
