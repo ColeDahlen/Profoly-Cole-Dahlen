@@ -5,6 +5,8 @@ import userSaga from './user.saga';
 import pictureSaga from './get_pictures.saga';
 import detailsSaga from './get_one_picture';
 import editSaga from './edit_database';
+import deleteSaga from './delete_image';
+import addSaga from './add_image';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,5 +24,6 @@ export default function* rootSaga() {
     detailsSaga(),
     editSaga(),
     deleteSaga(),
+    addSaga(),
   ]);
 }

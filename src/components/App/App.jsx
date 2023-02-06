@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ImageDetails from '../ImageDetails/ImageDetails';
 import EditDetail from '../EditDetail/EditDetail'
+import AddPage from '../AddPage/AddPage'
 
 import './App.css';
 
@@ -69,12 +70,18 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
-          
+
           <ProtectedRoute
             exact
             path="/images_details/:id"
           >
             <ImageDetails />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/add_picture"
+          >
+            <AddPage />
           </ProtectedRoute>
 
           <ProtectedRoute

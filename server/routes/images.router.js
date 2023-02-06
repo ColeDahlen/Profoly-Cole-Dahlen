@@ -28,8 +28,23 @@ router.get('/:id',rejectUnauthenticated,(req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.post('/', rejectUnauthenticated, (req, res) => {
+  let userId = req.user.id
+  let sqlQuery = `
+  INSERT INTO "gallery"
+	("picture_url", "picture_name", "picture_description", "user_id")
+	VALUES
+	($1, $2, $3, $4);
+  `
+  let sqlValues = [req.body.url, req.body.name, req.body.description, userId]
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) =>{
+      res.sendStatus(200)
+    })
+    .catch((dbErr) =>{
+      console.log('IMAGE POST SERVER SIDE ERROR:', dbErr)
+      res.sendStatus(500)
+    })
 });
 
 module.exports = router;

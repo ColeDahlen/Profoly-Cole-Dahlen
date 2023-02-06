@@ -41,8 +41,19 @@ router.put('/', rejectUnauthenticated, (req, res) =>{
         })
 })
 router.delete('/:id', rejectUnauthenticated, (req, res) =>{
-    console.log('$$$$$$$',req.params)
-    res.sendStatus(200)
+    let sqlQuery = `
+    DELETE FROM "gallery"
+    WHERE id = $1;
+    `
+    let sqlValues = [req.params.id]
+    pool.query(sqlQuery, sqlValues)
+        .then((dbRes) =>{
+            res.sendStatus(200)
+        })
+        .catch((dbErr) =>{
+            console.log('DETAIL DELETE SERVER SIDE ERROR:', dbErr)
+            res.sendStatus(500)
+        })
 })
 
 module.exports = router;
