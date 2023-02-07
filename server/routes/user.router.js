@@ -46,5 +46,30 @@ router.post('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
-
+router.put('/profile', rejectUnauthenticated, (req, res) =>{
+  const profile_url = req.body.profile_url
+  const profile_name = req.body.profile_name
+  const profile_bio = req.body.profile_bio
+  const userId = req.user.id
+  let sqlQuery = `
+  UPDATE "user"
+    SET profile_url = $1, profile_name = $2, profile_bio = $3
+    WHERE id = $4;
+  `
+  let sqlValues = [profile_url, profile_name, profile_bio, userId]
+  pool.query(sqlQuery,sqlValues)
+    .then((dbRes) =>{
+      res.sendStatus(200)
+    })
+    .catch((dbErr) =>{
+      console.log("/api/user/profile PUT ROUTE ERROR:", dbErr)
+      res.sendStatus(500)
+    })
+})
 module.exports = router;
+
+// {
+//   profile_url: 'https://i.imgur.com/H37kxPH.jpeg',
+//   profile_name: 'Cole',
+//   profile_bio: 'I am a new full stack developer'
+// }
