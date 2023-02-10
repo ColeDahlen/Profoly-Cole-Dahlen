@@ -1,4 +1,22 @@
 .profile_image{
     max-width: 300px;
     max-height: 300px;
+    margin-right: 100px;
+}
+.profile_name{
+    font-size: 50px;
+}
+.profile_bio{
+    font-size: 20px; 
+    border-style: solid;
+    min-width: 400px;
+    min-height: 100px;
+} 
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.edit{
+    margin:auto;
 }

@@ -23,21 +23,24 @@ function AddPage(){
         history.push('/gallery')
     }
     return(
-        <>
+        <div className='form-group'>
             <input placeholder="Enter in a valid picture url here!"
+            className="form-control"
             value={urlInput}
             onChange={(event) => {setUrlInput(event.target.value)}}
             />
             <input placeholder="Enter in the name of your picture!"
+            className="form-control"
             value={nameInput}
             onChange={(event) => {setNameInput(event.target.value)}}
             />
             <input placeholder="Enter in a detailed description of the picture here!"
+            className="form-control"
             value={descriptionInput}
             onChange={(event) => {setDescriptionInput(event.target.value)}}
             />
-            <button onClick={handleSave}>Save</button>
-        </>
+            <button className='btn btn-success save' onClick={handleSave}>Save</button>
+        </div>
     )
 }
 export default AddPage

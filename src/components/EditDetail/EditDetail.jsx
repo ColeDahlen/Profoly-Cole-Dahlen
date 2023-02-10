@@ -24,16 +24,18 @@ function EditDetail(){
         history.push('/gallery')
     }
     return(
-        <>
+        <div className='form-group'>
         <input placeholder='Edit the Name of the picture' 
+        className="form-control"
         value={nameInput} 
         onChange={e => setNameInput(e.target.value)}/>
 
         <input placeholder='Edit the Description of the picture' 
+        className="form-control"
         value={descriptionInput}
         onChange={e => setDescriptionInput(e.target.value)}/>
-        <button onClick={handleSave}>Save</button>
-        </>
+        <button className='btn btn-success save' onClick={handleSave}>Save</button>
+        </div>
     )
 }
 export default EditDetail;

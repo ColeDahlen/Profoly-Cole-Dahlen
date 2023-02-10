@@ -8,7 +8,8 @@ import editSaga from './edit_database';
 import deleteSaga from './delete_image';
 import addSaga from './add_image';
 import profileSaga from './update_user';
-
+import forumSaga from './get_forum';
+import allUserSaga from './get_all_users.saga'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -27,5 +28,7 @@ export default function* rootSaga() {
     deleteSaga(),
     addSaga(),
     profileSaga(),
+    forumSaga(),
+    allUserSaga(),
   ]);
 }

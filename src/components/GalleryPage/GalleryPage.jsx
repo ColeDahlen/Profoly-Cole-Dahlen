@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import ImageItems from './ImageItems';
+import './GalleryPage.css'
 
 function GalleryPage() {
   const dispatch = useDispatch();
@@ -19,14 +20,19 @@ function GalleryPage() {
   const user = useSelector((store) => store.user)
   const images = useSelector((store) => store.imagesReducer);
   return (
-    <div className="container">
+    <>
+    <div className="d-flex parent">
       {
         images.map((image) =>{
-          return <ImageItems image={image} />
+          return <ImageItems key={image.id} className="p-2" image={image} />
         })
       }
-      <button onClick={handleAdd}>Add</button>
     </div>
+    <div className="d-flex flex-row-reverse">
+      <button type="button" className="btn btn-success p-2 add1" onClick={handleAdd}>Add</button>
+    </div>
+  
+    </>
   );
 }
 

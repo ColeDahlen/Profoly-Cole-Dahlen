@@ -26,13 +26,13 @@ function ImageDetails(){
     }
     console.log('params', params)
     return(
-        <>
+        <div className='con'>
         <img className='details_picture' src={detail.picture_url} alt={detail.picture_name}/>
         <div className='details_name'>{detail.picture_name}</div>
         <div className='details_description'>{detail.picture_description}</div>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleEdit}>Edit</button>
-        </>
+        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+        <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
+        </div>
     )
 }
 export default ImageDetails;
