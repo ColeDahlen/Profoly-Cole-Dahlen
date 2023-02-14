@@ -23,6 +23,7 @@ import ImageDetails from '../ImageDetails/ImageDetails';
 import EditDetail from '../EditDetail/EditDetail'
 import AddPage from '../AddPage/AddPage'
 import Forum from '../Forum/Forum'
+import ForumDetails from '../ForumDetails/ForumDetails'
 
 import './App.css';
 
@@ -83,6 +84,12 @@ function App() {
             path="/forum"
           >
             <Forum />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact 
+            path="/forum_details/:id"
+          >
+            <ForumDetails />
           </ProtectedRoute>
           <ProtectedRoute
             exact

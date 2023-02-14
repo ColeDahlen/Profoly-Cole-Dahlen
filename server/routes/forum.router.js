@@ -62,39 +62,24 @@ GROUP BY "comments".id, forum.id;
       res.sendStatus(500)
     })
 });
-// const inventory = [
-//     { name: "apples", quantity: 2 },
-//     { name: "bananas", quantity: 0 },
-//     { name: "cherries", quantity: 5 },
-//   ];
-  
-//   function isCherries(fruit) {
-//     return fruit.name === "cherries";
-//   }
-  
-//   console.log(inventory.find(isCherries));
-//   // { name: 'cherries', quantity: 5 }
 
-/**
- * POST route template
- */
-// router.post('/', rejectUnauthenticated, (req, res) => {
-//   let userId = req.user.id
-//   let sqlQuery = `
-//   INSERT INTO "gallery"
-// 	("picture_url", "picture_name", "picture_description", "user_id")
-// 	VALUES
-// 	($1, $2, $3, $4);
-//   `
-//   let sqlValues = [req.body.url, req.body.name, req.body.description, userId]
-//   pool.query(sqlQuery, sqlValues)
-//     .then((dbRes) =>{
-//       res.sendStatus(200)
-//     })
-//     .catch((dbErr) =>{
-//       console.log('IMAGE POST SERVER SIDE ERROR:', dbErr)
-//       res.sendStatus(500)
-//     })
-// });
+router.post('/', rejectUnauthenticated, (req, res) => {
+  let userId = req.user.id
+  let sqlQuery = `
+  INSERT INTO "forum"
+	("picture_url", "picture_name", "picture_description", "user_id")
+	VALUES
+	($1, $2, $3, $4);
+  `
+  let sqlValues = [req.body.picture_url, req.body.picture_name, req.body.picture_description, userId]
+  pool.query(sqlQuery, sqlValues)
+    .then((dbRes) =>{
+      res.sendStatus(200)
+    })
+    .catch((dbErr) =>{
+      console.log('FORUM POST SERVER SIDE ERROR:', dbErr)
+      res.sendStatus(500)
+    })
+});
 
 module.exports = router;

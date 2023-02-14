@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory} from 'react-router-dom'
 
 import './ImageDetail.css'
-function ImageDetails(){
+function ForumDetails(){
     const params = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
@@ -42,4 +42,4 @@ function ImageDetails(){
         </div>
     )
 }
-export default ImageDetails;
+export default ForumDetails;

@@ -31,6 +31,7 @@ function GalleryPage() {
     <div className="d-flex flex-row-reverse">
       <button type="button" className="btn btn-success p-2 add1" onClick={handleAdd}>Add</button>
     </div>
+    
   
     </>
   );
