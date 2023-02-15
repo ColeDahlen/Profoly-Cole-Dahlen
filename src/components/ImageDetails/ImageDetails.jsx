@@ -29,6 +29,7 @@ function ImageDetails(){
             type: 'SAGA/FORUM_POST',
             payload: detail
         })
+        history.push('/forum')
     }
     console.log('params', params)
     return(

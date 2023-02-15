@@ -11,6 +11,8 @@ import profileSaga from './update_user';
 import forumSaga from './get_forum';
 import allUserSaga from './get_all_users.saga'
 import forumPostSaga from './forum_post'
+import commentPostSaga from './add_comment'
+import deleteForumSaga from './delete_forum'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -32,5 +34,7 @@ export default function* rootSaga() {
     forumSaga(),
     allUserSaga(),
     forumPostSaga(),
+    commentPostSaga(),
+    deleteForumSaga(),
   ]);
 }

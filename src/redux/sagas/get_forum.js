@@ -6,7 +6,7 @@ function* getAllForumPosts(){
         const response = yield axios({
             method: 'GET',
             url: '/api/forum'
-          })       
+        })       
         yield put({
             type: 'SET_FORUM',
             payload: response.data

@@ -5,9 +5,6 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
 router.get('/',rejectUnauthenticated,(req, res) => {
   let sqlQuery = `
 SELECT 
@@ -81,5 +78,20 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 });
-
+router.delete('/:id', rejectUnauthenticated, (req, res) =>{
+    let idToDelete = req.params.id
+    let sqlQuery = `
+    DELETE FROM "forum"
+    WHERE id = $1;
+    `
+    let sqlValues = [idToDelete]
+    pool.query(sqlQuery, sqlValues)
+        .then((dbRes) =>{
+            res.sendStatus(200)
+        })
+        .catch((dbErr) =>{
+            console.log('FORUM DELETE SERVER SIDE ERROR:', dbErr)
+            res.sendStatus(500)
+        })
+})
 module.exports = router;

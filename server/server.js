@@ -13,6 +13,7 @@ const imagesRouter = require('./routes/images.router.js');
 const detailsRouter = require('./routes/details.router')
 const forumRouter = require('./routes/forum.router')
 const getAllUsers = require('./routes/getAllUsers.router')
+const commentRouter = require('./routes/comment.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/images', imagesRouter)
 app.use('/api/details', detailsRouter)
 app.use('/api/forum', forumRouter)
+app.use('/api/comment', commentRouter)
 app.use('/api/all_users', getAllUsers)
 
 // Serve static files
