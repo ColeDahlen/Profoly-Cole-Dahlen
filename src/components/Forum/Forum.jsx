@@ -13,7 +13,6 @@ function Forum(){
           type: 'SAGA/FETCH_POSTS'
         })
       }, []);
-    // console.log('$$$$$$$$$$',forums)
     return (
         <>
         <div className='d-flex parent'>
